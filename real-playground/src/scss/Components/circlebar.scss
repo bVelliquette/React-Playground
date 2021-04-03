@@ -1,0 +1,64 @@
+@import "../variables";
+
+$container-dimension: 30rem;
+$center-dimension--width: $container-dimension/2.5;
+$center-dimension--height: $container-dimension/9;
+$center--font-size: $container-dimension/19;
+$center-position--left: $container-dimension/2 - $center-dimension--width/2;
+$center-position--top: $container-dimension/2 - $center-dimension--height/2;
+
+.circle-progress {
+  &-svg {
+  }
+  &-base {
+    stroke: $colors-purple-darker;
+    stroke-width: 50;
+  }
+  &-meter {
+    stroke: $colors-gray-dark;
+    stroke-width: 48;
+  }
+  &-potential {
+    stroke: $colors-gray-light;
+    stroke-width: 48;
+  }
+  &-container {
+    height: $container-dimension;
+    width: $container-dimension;
+    position: relative;
+  }
+  &-center {
+    &-button {
+      background-color: $colors-gray-light;
+      width: $center-dimension--width;
+      height: $center-dimension--height;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 15px;
+      margin: 0.2rem;
+      &-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      &-text {
+        font-weight: 900;
+        font-size: $center--font-size;
+      }
+      &-wrapper {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+  }
+}

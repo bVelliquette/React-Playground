@@ -1,0 +1,17 @@
+@import "../variables";
+.button {
+  &-container {
+  }
+  &-content {
+    height: 3rem;
+    width: 10rem;
+    border: 3px solid $colors-purple-darker;
+    border-radius: 10px;
+    background-color: $colors-gray-dark;
+  }
+  &-text {
+    color: $colors-purple-bright;
+    font-weight: 600;
+    font-size: 1.2rem;
+  }
+}

@@ -1,0 +1,27 @@
+@use "./Views/views";
+@use "./Components/components";
+
+@import "./variables";
+.base {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+body {
+  background-color: $colors-purple-gray-dark;
+  color: #080808;
+}
+h1 {
+  margin: 0;
+}
+button {
+  padding: 0;
+  color: #080808;
+  &:focus{
+    outline: none;
+    box-shadow: none;
+  }
+}
+p {
+  margin: 0;
+}
