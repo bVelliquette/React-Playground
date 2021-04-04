@@ -11,9 +11,6 @@ interface Props {
 }
 
 const Button: React.FC<Props> = ({ route, label, className, sidebarOpen }) => {
-  const [sweetNum, setSweetNum] = useState<number>(0);
-  const [hovered, setHovered] = useState<boolean>(false);
-
   const hoveredShift = 4;
   const slideDistance = 100;
   let tapped = false;
@@ -22,13 +19,10 @@ const Button: React.FC<Props> = ({ route, label, className, sidebarOpen }) => {
   return (
     <motion.div
       className={`button-container ${className}`}
-      onHoverStart={(event, info) => {
-        setSweetNum(100);
-        setHovered(true);
-      }}
-      onHoverEnd={(event, info) => {
-        setSweetNum(0);
-        setHovered(false);
+      whileHover={{
+        translateY: `${sidebarOpen ? -hoveredShift : 0}px`,
+        translateX: `${sidebarOpen ? -hoveredShift : slideDistance}px`,
+        transition: { duration: 0.1 },
       }}
       whileTap={{
         translateY: "-1px",
@@ -39,13 +33,6 @@ const Button: React.FC<Props> = ({ route, label, className, sidebarOpen }) => {
         right: 0,
       }}
       animate={{
-        translateX: `${
-          (sidebarOpen ? 0 : 1) * (hovered ? 1 : 0) * slideDistance +
-          (hovered ? 1 : 0) * -hoveredShift
-        }px`,
-        translateY: `${
-          (sidebarOpen ? 1 : 0) * (hovered ? -hoveredShift : 0)
-        }px`,
         transition: sidebarOpen
           ? {
               duration: 0.1,
