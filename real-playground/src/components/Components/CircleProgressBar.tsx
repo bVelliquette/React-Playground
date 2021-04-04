@@ -17,7 +17,9 @@ const ProgressBar = ({
   const z = 135;
   const pathVariants = {
     initial: initialFull
-      ? { pathLength: 270 / 360, rotateZ: z }
+      ? { pathLength: 280 / 360, rotateZ: z - 5 }
+      : unchanging
+      ? { pathLength: 270/ 360, rotate: z}
       : { pathLength: 0, rotateZ: z },
     opened: unchanging
       ? {}
@@ -60,18 +62,24 @@ const CircleProgressBar = ({
         <motion.svg className="circle-progress-svg" viewBox="0 0 200 200">
           <ProgressBar
             className="circle-progress-base"
-            progress={40}
+            progress={0}
             rotate={2.7 * (progress + potentialProgress)}
             initialFull={true}
             unchanging={true}
           />
           <ProgressBar
-            progress={potentialProgress}
+            progress={100 - ((potentialProgress | 0) + (progress | 0))}
+            rotate={2.7 * ((progress | 0) + (potentialProgress | 0))}
+            className="circle-progress-base2"
+            unchanging={true}
+          />
+          <ProgressBar
+            progress={potentialProgress | 0}
             rotate={2.7 * progress}
             className="circle-progress-potential"
           />
           <ProgressBar
-            progress={progress}
+            progress={progress | 0}
             rotate={0}
             className="circle-progress-meter"
           />

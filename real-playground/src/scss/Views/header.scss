@@ -1,12 +1,17 @@
 @import "../variables";
 .header {
   &-container {
-    background-color: $colors-purple-dark;
+    background-color: $colors-purple-gray-dark;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 1rem;
     height: 3.5rem;
+    border: solid $colors-purple-darker;
+    border-width: .5rem 0;
+    &>h1{
+      color: $colors-gray-light
+    }
   }
   &-title {
     width:fit-content;

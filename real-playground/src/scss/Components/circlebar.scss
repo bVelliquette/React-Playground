@@ -1,6 +1,6 @@
 @import "../variables";
 
-$container-dimension: 30rem;
+$container-dimension: 25rem;
 $center-dimension--width: $container-dimension/2.5;
 $center-dimension--height: $container-dimension/9;
 $center--font-size: $container-dimension/19;
@@ -10,22 +10,39 @@ $center-position--top: $container-dimension/2 - $center-dimension--height/2;
 .circle-progress {
   &-svg {
   }
+  &-form {
+    display: flex;
+    flex-direction: column;
+    font-weight: 600;
+  }
+  &-body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 2rem;
+  }
   &-base {
-    stroke: $colors-purple-darker;
     stroke-width: 50;
+    stroke: $colors-purple-darker;
+  }
+  &-base2 {
+    stroke: $colors-purple-gray-dark;
+    stroke-width: 40;
   }
   &-meter {
     stroke: $colors-gray-dark;
-    stroke-width: 48;
+    stroke-width: 40;
   }
   &-potential {
-    stroke: $colors-gray-light;
-    stroke-width: 48;
+    stroke: $colors-purple-bright;
+    stroke-width: 40;
   }
   &-container {
+    z-index: -1;
     height: $container-dimension;
     width: $container-dimension;
     position: relative;
+    margin-top: -5rem;
   }
   &-center {
     &-button {

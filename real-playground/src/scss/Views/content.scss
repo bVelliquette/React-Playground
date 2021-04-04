@@ -4,47 +4,71 @@
   flex-direction: row;
   height: 100%;
   &-main {
+    margin: 0;
     flex-shrink: 1;
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    overflow-x: auto;
   }
   &-sidebar {
-    overflow: hidden;
     background-color: $colors-purple-darker;
     flex-shrink: 0;
     display: flex;
     justify-content: flex-start;
     align-items: flex-end;
     flex-direction: column;
-
+    border-right: 2px solid $colors-purple-dark;
     &-header {
-      width: 100%;
-      height: 3rem;
-      background-color: $colors-gray-dark;
+      align-self: center;
+      width: 11.6rem;
+      max-width: 98%;
+      margin: .2rem;
+      height: 2.5rem;
+      // background-color: $colors-gray-dark;
     }
 
     &-toggle {
       position: absolute;
-      background-color: $colors-purple-darker;
+      background-color: $colors-purple-dark;
       border: 2px solid $colors-purple-bright;
       color: $colors-purple-bright;
       border-radius: 4px;
-      margin: 0.5rem 0.1rem;
+      margin: 0rem 0.1rem;
       padding: 0.2rem 0.7rem;
       width: 5rem;
       height: 2rem;
-      z-index: 1;
+      z-index: 2;
       box-shadow: 2px 2px 0px $colors-purple-bright !important;
       &:active {
         transform: translateX(2px) translateY(2px);
         box-shadow: inset 2px 2px 0px $colors-purple-bright !important;
       }
+      &-chevron {
+        position: absolute;
+        &--right {
+          @extend .content-sidebar-toggle-chevron;
+          right: 0;
+        }
+        &--left {
+          @extend .content-sidebar-toggle-chevron;
+          left: 0;
+        }
+      }
     }
     &-button {
-      margin: .2rem 0;
+      z-index: 1;
+      margin: 0.2rem 0;
       &-container {
-        width: fit-content;
+        width: 11rem;
+        margin: 0 .5rem .5rem .5rem;
+        height: 100%;
         display: flex;
         flex-direction: column;
-        justify-content: flex-end;
+        justify-content: flex-start;
+        align-items: center;
+        background-color: $colors-purple-gray-light;
       }
     }
   }

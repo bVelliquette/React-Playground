@@ -1,0 +1,25 @@
+@import "../variables";
+.slider {
+  &-container {
+    position: relative;
+    width: 20rem;
+    height: 2rem;
+    background-color: $colors-purple-bright;
+    margin: 1rem 1rem;
+  }
+  &-track {
+    position: absolute;
+    top: 0.9rem;
+    left: 1rem;
+    width: 18rem;
+    height: 0.2rem;
+    background-color: $colors-purple-dark;
+  }
+  &-knob {
+    position: relative;
+    top: -1.4rem;
+    width: 1rem;
+    height: 3rem;
+    background-color: $colors-gray-dark;
+  }
+}

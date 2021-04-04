@@ -5,12 +5,15 @@
   &-content {
     height: 3rem;
     width: 10rem;
-    border: 3px solid $colors-purple-darker;
+    border: 3px solid $colors-purple-dark;
     border-radius: 10px;
-    background-color: $colors-gray-dark;
+    background-color: $colors-purple-darker;
+    &:hover {
+      cursor: pointer;
+    }
   }
   &-text {
-    color: $colors-purple-bright;
+    color: $colors-gray-light;
     font-weight: 600;
     font-size: 1.2rem;
   }

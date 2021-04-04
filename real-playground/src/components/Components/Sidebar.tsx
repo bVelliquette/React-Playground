@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import React, { useState } from "react";
 import Button from "./Button";
+import { BsChevronRight } from "react-icons/bs";
 
 const Sidebar = ({
   children,
@@ -8,7 +9,7 @@ const Sidebar = ({
   children: React.ReactNode[] | React.ReactNode;
 }) => {
   const [sidebarActive, setSidebarActive] = useState<boolean>(false);
-  const closedWidth = 1.5;
+  const closedWidth = 2.5;
   const openWidth = 12;
   const sidebarVariants = {
     body: {
@@ -27,18 +28,32 @@ const Sidebar = ({
         transition: {},
       },
       opened: {
-        left: `${0.01}rem`,
-        width: `${openWidth - 0.5}rem`,
+        left: `${0.21}rem`,
+        width: `${openWidth - 0.8}rem`,
         transition: {},
+      },
+    },
+    toggleChevron: {
+      closed: {
+        rotateZ: 0,
+        transition: {
+          duration: 0.2,
+          ease: "easeInOut",
+        },
+      },
+      opened: {
+        rotateZ: -180,
+        transition: {
+          duration: 0.2,
+          ease: "easeInOut",
+        },
       },
     },
     container: {
       closed: {
-        margin: ".5rem .1rem",
         transition: {},
       },
       opened: {
-        margin: ".5rem 1rem",
         transition: {},
       },
     },
@@ -55,6 +70,22 @@ const Sidebar = ({
             setSidebarActive(!sidebarActive);
           }}
         >
+          <motion.div
+            variants={sidebarVariants.toggleChevron}
+            initial="closed"
+            animate={`${sidebarActive ? "opened" : "closed"}`}
+            className="content-sidebar-toggle-chevron--right"
+          >
+            <BsChevronRight />
+          </motion.div>
+          <motion.div
+            variants={sidebarVariants.toggleChevron}
+            initial="closed"
+            animate={`${sidebarActive ? "opened" : "closed"}`}
+            className="content-sidebar-toggle-chevron--left"
+          >
+            <BsChevronRight />
+          </motion.div>
           Sidebar
         </motion.button>
         <motion.div
@@ -65,7 +96,7 @@ const Sidebar = ({
         >
           <div className="content-sidebar-header" />
           <motion.div
-            className="content-button-container"
+            className="content-sidebar-button-container"
             variants={sidebarVariants.container}
             initial="closed"
             animate={`${sidebarActive ? "opened" : "closed"}`}
@@ -74,8 +105,14 @@ const Sidebar = ({
               className="content-sidebar-button"
               route="/CPB"
               label="CPB"
+              sidebarOpen={sidebarActive}
             />
-            <Button className="content-sidebar-button" route="/" label="HOME" />
+            <Button
+              sidebarOpen={sidebarActive}
+              className="content-sidebar-button"
+              route="/"
+              label="HOME"
+            />
           </motion.div>
         </motion.div>
         <div className="content-main">{children}</div>
